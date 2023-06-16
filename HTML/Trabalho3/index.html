@@ -1,0 +1,64 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xadrez Ultimate</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () =>{
+            // transform $ em bind do document.queryseelector
+            $ = document.querySelector.bind(document);
+            $$ = document.querySelectorAll.bind(document);
+            
+            function toggleMenu(){
+                const menu =  $(".side-navbar");
+                menu.style.left =  menu.open  ? "-250px" : "0";
+                menu.open = !menu.open;
+                $(".open-icon").classList.toggle("hidden")
+                $(".close-icon").classList.toggle("hidden");
+            }
+
+
+            $(".left-header button").onclick = (evt) => {
+                toggleMenu()
+            };
+
+            [...$$(".side-navbar a")].forEach(d => {
+                d.onclick =  (evt) => {
+                    evt.preventDefault();
+                    toggleMenu();
+                    $("#content").setAttribute("src", `./${evt.target.getAttribute('href').replace("#","")}.html`);
+                    $("#page-title").innerHTML = evt.target.innerHTML;
+                };
+            })
+
+        })
+    </script>
+
+</head>
+<body>
+    <header>
+        <div class="left-header">
+            <button id="open_navbar">
+               <img class="open-icon" src="./img/view-headline.svg">
+               <img class="close-icon hidden" src="./img/close_black_24dp.svg">
+            </button>
+        </div>
+        <div class="center-header"> Xadrez Ultimate > 
+            <span id="page-title">
+                Início
+            </span> </div>
+    </header>
+    <div class="main">
+        <iframe  id="content" src="./home.html" frameborder="0"></iframe>
+    </div>
+    <nav class="side-navbar">
+        <a href="#home">Inicio</a>
+        <a href="#chess_masters">Mestres</a>
+        <a href="#chess_story">História do Xadrez</a>
+    </nav>
+    <footer>
+    </footer>
+</body>
+</html>
