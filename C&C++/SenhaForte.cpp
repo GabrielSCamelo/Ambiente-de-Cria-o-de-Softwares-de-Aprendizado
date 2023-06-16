@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-/*Professor demorei para aplicar a formula de if que o senhor forneceu, n„o consegui aplicar de maneira eficiente e fiquei em duvida sobre identificar numero
-do lado de numero, mais acredito que seria usando um string auxiliar e verificando se ambos s„o numeros ou se ambos s„o letras no caso seria
-necessario o uso de 2-3 string auxiliar 2 para compor repetidos e 1 para compor a copia da  string e ver se ambos s„o numeros*/
+/*Professor demorei para aplicar a formula de if que o senhor forneceu, n√£o consegui aplicar de maneira eficiente e fiquei em duvida sobre identificar numero
+do lado de numero, mais acredito que seria usando um string auxiliar e verificando se ambos s√£o numeros ou se ambos s√£o letras no caso seria
+necessario o uso de 2-3 string auxiliar 2 para compor repetidos e 1 para compor a copia da  string e ver se ambos s√£o numeros*/
 
 
 int validade(char s[],int i,int z,int y,int x);
