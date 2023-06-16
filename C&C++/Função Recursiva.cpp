@@ -25,17 +25,17 @@ int recursiva(char s1[],char s2[],int i,int x,int comum)
 		    comum++; //comuns
 		    i++; //contador da string 1
 		    x=0; //contador da string 2
-			recursiva (s1,s2,i,x,comum);//realizando a operaÁ„o denovo atÈ varrer todo o vetor string 1 e fechar o ciclo no '|'
+			recursiva (s1,s2,i,x,comum);//realizando a opera√ß√£o denovo at√© varrer todo o vetor string 1 e fechar o ciclo no '|'
 	    }
 	    else
 	    {
-	    	x++; //n„o achou comum aumenta procura de string 2
+	    	x++; //n√£o achou comum aumenta procura de string 2
 	    if(s2[x]=='|') // verifica se chegou no limite da string 2
 		{
 			i++; //chegou no limite aumentou "+1" NA STRING 1
 			x=0; //resetou string 2
 		}
-		recursiva (s1,s2,i,x,comum);//reiniciou a funÁ„o para continuar a procura com o aumento da string 2
+		recursiva (s1,s2,i,x,comum);//reiniciou a fun√ß√£o para continuar a procura com o aumento da string 2
 	    }	    		
 	}
 }
