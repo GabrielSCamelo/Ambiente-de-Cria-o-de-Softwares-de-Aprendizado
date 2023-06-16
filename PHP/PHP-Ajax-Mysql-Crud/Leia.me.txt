@@ -1,0 +1,4 @@
+Os endereços dos programas estão dando conflito no meu PC, caso ocorra o mesmo mecher no endereçamento de cada codigo enviando as informações
+para o php.
+
+o lista_todos(Un).php está incompleto pós não consegui pensar numa maneira de implementar o Php.info para o javascript.

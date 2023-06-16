@@ -1,0 +1,2 @@
+id,Nome,Codigo de Barras,Descricao,Valor,Estoque,Peso,URL Imagem
+6284cafa3bfa1,uga,uga,uga,lele,lele,uga,lele

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        function incluir()
+        {
+            //variaveis
+            const marca = document.getElementById('marca').value
+            const modelo = document.getElementById('modelo').value
+            const qtdassentos = document.getElementById('qtdAssentos').value
+            const temBanheiro = document.getElementById('temBanheiro').value
+            const temArcondicionado = document.getElementById('temArCondicionado').value
+            const chassi = document.getElementById('chassi').value
+            const placa = document.getElementById('placa').value
+
+            const estrutura = new FormData()
+
+            //estrutura form
+            estrutura.append('marca',marca);
+
+            estrutura.append('modelo',modelo);
+
+            estrutura.append('qtdassentos',qtdassentos);
+
+            estrutura.append('temBanheiro', temBanheiro);
+
+            estrutura.append('temArcondicionado', temArcondicionado);
+
+            estrutura.append('chassi',chassi);
+
+            estrutura.append('placa',placa);
+
+            fetch('http://localhost/php/AV2/server/Incluir(Un).php', {
+                method:'POST',
+                body:estrutura
+            })
+        }
+    </script>
+</head>
+<body class="w3-bar w3-black">
+<div>
+    <a href="../Menu(Un).html" class="w3-bar-item w3-button">Inicio</a>
+    <a href="incluir(Un).html" class="w3-bar-item w3-button">Incluir</a>
+    <a href="excluir(Un).html" class="w3-bar-item w3-button">Excluir</a>
+    <a href="alterar(Un).html" class="w3-bar-item w3-button">Alterar</a>
+    <a href="listar_todos(Un).html" class="w3-bar-item w3-button">Lista Todos</a>
+    <a href="listar_um(Un).html" class="w3-bar-item w3-button">Lista Um</a>
+</div>
+<br><br>
+<div id="form">
+    <form method="POST">
+        Marca: <input type="text" name="marca" id="marca" value=""><br>
+        Modelo: <input type="text" name="modelo" id="modelo" value=""><br>
+        Total Assentos: <input type="number" name="qtdAssentos" id="qtdAssentos" value=""><br>
+        chassi: <input type="text" name="chassi" id="chassi" value=""><br>
+        placa: <input type="text" name="placa" id="placa" value=""><br>
+        <label for="temArCondicionado">Arcondicionado:</label>
+        <select name="temArCondicionado" id="temArCondicionado">
+            <option value="0">Nao</option>
+            <option value="1">Sim</option>
+        </select>
+        <br>
+        <label for="temBanheiro">Banheiro:</label>
+        <select name="temBanheiro" id="temBanheiro">
+            <option value="0">Nao</option>
+            <option value="1">Sim</option>
+        </select>
+        <br><br>
+    </form>
+    <input type="submit" name="enviar" id="enviar" value="Incluir" onclick="incluir()">
+</div>
+<div id="results"></div>
+</body>
+</html>

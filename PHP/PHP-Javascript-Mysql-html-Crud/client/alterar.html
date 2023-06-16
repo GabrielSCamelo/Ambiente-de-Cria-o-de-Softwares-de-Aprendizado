@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script type="text/javascript" src="../biblioteca_js.js"></script>
+    </head>
+    <body class="w3-bar w3-black">
+        <div>
+            <a href="../Menu.html" class="w3-bar-item w3-button">Início</a>
+            <a href="incluir.html" class="w3-bar-item w3-button">Incluir</a>
+            <a href="excluir.html" class="w3-bar-item w3-button">Excluir</a>
+            <a href="alterar.html" class="w3-bar-item w3-button">Alterar</a>
+            <a href="listar_todos.html" class="w3-bar-item w3-button">Lista Todos</a>
+            <a href="listar_um.html" class="w3-bar-item w3-button">Lista Um</a>
+        </div>
+        <br><br>
+        <div id="form">
+            <form action="../listar/listar.php" method="GET">
+                Matrícula: <input type="text" name="matricula" id="matricula" value="">
+                <input type="button" name="procurar" id="procurar" value="Procurar" onClick="geraFormAlteracao();">
+            </form>
+        </div>
+        <div id="retorno"></div>
+    </body>
+</html>
