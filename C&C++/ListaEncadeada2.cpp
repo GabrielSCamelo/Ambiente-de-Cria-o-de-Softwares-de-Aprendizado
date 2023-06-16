@@ -1,4 +1,4 @@
-//importação de bibliotecas
+//importaÃ§Ã£o de bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,7 +6,7 @@
 #define FALSE 0
 #define TRUE 1
 
-//definição de tipos
+//definiÃ§Ã£o de tipos
 typedef struct No {
 	int valor;	
 	struct No* prox;
@@ -14,7 +14,7 @@ typedef struct No {
 
 typedef TNo* TLista;
 
-//protótipos das funções
+//protÃ³tipos das funÃ§Ãµes
 int inserirp (TLista *L, int numero,int position);
 int inserir (TLista *L, int numero);
 void exibir (TLista L);
@@ -54,14 +54,14 @@ int main()
 
 int inserirp (TLista *L, int numero,int position)
 {
-	//Declaração de variáveis
+	//DeclaraÃ§Ã£o de variÃ¡veis
 	TLista aux1,aux2;
 	int cont=0;
 	
-	//Passo1: alocar memória para o novo elemento
+	//Passo1: alocar memÃ³ria para o novo elemento
 	aux2 = (TLista) malloc (sizeof(TNo));
 
-	//verificando se a memória solicitada não foi alocada
+	//verificando se a memÃ³ria solicitada nÃ£o foi alocada
 	if (aux2 == NULL)
 	{
 		return NULL;
@@ -101,7 +101,7 @@ int inserirp (TLista *L, int numero,int position)
 }
 int inserir (TLista *L, int numero)
 {
-	//Declaração de variáveis
+	//DeclaraÃ§Ã£o de variÃ¡veis
 	TLista aux;
 	
 	aux = (TLista) malloc (sizeof(TNo));
@@ -122,10 +122,10 @@ int inserir (TLista *L, int numero)
 }
 void exibir (TLista L)
 {
-	//declaração de variáveis
+	//declaraÃ§Ã£o de variÃ¡veis
 	TLista aux;
 	
-	//testando se a lista está vazia
+	//testando se a lista estÃ¡ vazia
 	if (L == NULL)   //if (!L)
 	{
 		printf ("\nLista Vazia!\n\n");
@@ -134,16 +134,16 @@ void exibir (TLista L)
 	{
 		printf ("\nLista: ");
 		
-		//inicializando 'aux' de forma que aponte para o primeiro nó da lista
+		//inicializando 'aux' de forma que aponte para o primeiro nÃ³ da lista
 		aux = L;
 		
-		//percorrendo todos os nós da lista
+		//percorrendo todos os nÃ³s da lista
 		while (aux != NULL) //while (aux) 
 		{
 			//exibindo o valor apontado pelo 'aux'
 			printf ("%d ", aux->valor);
 			
-			//andar com o 'aux' de forma que ele aponte para o próximo nó
+			//andar com o 'aux' de forma que ele aponte para o prÃ³ximo nÃ³
 			aux = aux->prox;
 		}	
 	}
