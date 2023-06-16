@@ -1,4 +1,4 @@
-//importaÁ„o de bibliotecas
+//importa√ß√£o de bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,7 +36,7 @@ int main()
 
 int inserir (TLista *L, int numero)
 {
-	//DeclaraÁ„o de vari·veis
+	//Declara√ß√£o de vari√°veis
 	TLista aux;
 	
 	aux = (TLista) malloc (sizeof(TNo));
@@ -57,10 +57,10 @@ int inserir (TLista *L, int numero)
 }
 void exibir (TLista L)
 {
-	//declaraÁ„o de vari·veis
+	//declara√ß√£o de vari√°veis
 	TLista aux;
 	
-	//testando se a lista est· vazia
+	//testando se a lista est√° vazia
 	if (L == NULL)   //if (!L)
 	{
 		printf ("\nLista Vazia!\n\n");
