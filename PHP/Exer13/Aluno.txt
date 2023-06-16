@@ -1,0 +1,2 @@
+matricula ; nome ; idade ; email
+986 ; felipe da noia ; 52 ; asdasd@gnau
