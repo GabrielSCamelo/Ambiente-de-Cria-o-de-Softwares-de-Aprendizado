@@ -1,18 +1,18 @@
 //bibliotecas utilizadas
-#include <stdio.h> //utilizado para criação padrão basica.
+#include <stdio.h> //utilizado para criaÃ§Ã£o padrÃ£o basica.
 #include <stdlib.h> // utilizado para limpar o programa 
 #include <time.h> //utilizada para ter sementes aleatorias
-#include <string.h> //utilizada para definir as informações da struct
+#include <string.h> //utilizada para definir as informaÃ§Ãµes da struct
 
 //struct
 typedef struct
 {
-	int Status,Periodo; //Periodos (1o/2o/3o/4o/5o) 5 Periodos e Status (Livre/Manutenção/Alocada) 3 Statos; obs: caso esteja livre curso = N/A Periodo=0.
-	//caso esteja em manutenção curso = MRO
+	int Status,Periodo; //Periodos (1o/2o/3o/4o/5o) 5 Periodos e Status (Livre/ManutenÃ§Ã£o/Alocada) 3 Statos; obs: caso esteja livre curso = N/A Periodo=0.
+	//caso esteja em manutenÃ§Ã£o curso = MRO
 	char Curso[3]; //curso definido pro siglas (CAL/REQ/TPH/SOP/MPA/FPR) 6 CURSOS DEFINIDIDOS.
 } InfoSala;
 
-//funções
+//funÃ§Ãµes
 void definindoinfo(InfoSala P[8][10][3]);
 void exibirinfo(InfoSala P[8][10][3]);
 void Cursos();
@@ -25,9 +25,9 @@ int main()
 	exibirinfo(Predio);
 	
 }
-void definindoinfo(InfoSala P[8][10][3]) // (A)ndares / (S)alas / (T)urnos definindo tamanhos até onde deve-se repetir.
+void definindoinfo(InfoSala P[8][10][3]) // (A)ndares / (S)alas / (T)urnos definindo tamanhos atÃ© onde deve-se repetir.
 {
-	int i1,i2,i3,temp; //variaveis para a repetição. (i) variavel para aleatorio (temp)
+	int i1,i2,i3,temp; //variaveis para a repetiÃ§Ã£o. (i) variavel para aleatorio (temp)
 	
 	srand(time(NULL));
 	
@@ -41,7 +41,7 @@ void definindoinfo(InfoSala P[8][10][3]) // (A)ndares / (S)alas / (T)urnos defin
 				
 				if(P[i1][i2][i3].Status==1)
 				{
-					P[i1][i2][i3].Periodo=1+rand() % 5; //definição de Periodo
+					P[i1][i2][i3].Periodo=1+rand() % 5; //definiÃ§Ã£o de Periodo
 					
 					temp=rand() % 6; //definindo curso
 					
@@ -75,13 +75,13 @@ void definindoinfo(InfoSala P[8][10][3]) // (A)ndares / (S)alas / (T)urnos defin
 				else
 				{
 					P[i1][i2][i3].Periodo=0;
-					if(P[i1][i2][i3].Status==0) // 0 para sala livre | 2 para sala manutenção.
+					if(P[i1][i2][i3].Status==0) // 0 para sala livre | 2 para sala manutenÃ§Ã£o.
 					{
 						strcpy(P[i1][i2][i3].Curso,"N/A"); //LIVRE
 					}
 					else
 					{
-					    strcpy(P[i1][i2][i3].Curso,"MRO");	//MANUTENÇÃO
+					    strcpy(P[i1][i2][i3].Curso,"MRO");	//MANUTENÃ‡ÃƒO
 					}
 				}
 			}
@@ -103,7 +103,7 @@ void exibirinfo(InfoSala P[8][10][3])
 		printf("\tInforme o Curso que deseja Visualizar ou A situacao de sala: "); //pergunta qual curso vc deseja visualizar, informar tanto maiusculo quanto minusculo
 		gets(C);
 		strupr(C);//passa a string para miausculo
-		system("cls"); //retira as informações desnecessarias naquele momento.
+		system("cls"); //retira as informaÃ§Ãµes desnecessarias naquele momento.
 		
 		printf("\tSalas do Curso (%s) /\tPeriodo\n\n",C);
 		
