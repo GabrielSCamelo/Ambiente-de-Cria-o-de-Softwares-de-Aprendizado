@@ -11,35 +11,35 @@ int main()
 	//variaveis 
 	char s1[] = "|nome|idade|genero|"; //variavel definida para teste
 	char s2[10]; //minimo
-	int ordem; //ordem para prucrar a informação
+	int ordem; //ordem para prucrar a informaÃ§Ã£o
 	
-	//pedindo as informações
+	//pedindo as informaÃ§Ãµes
 	printf("qual info deseja procurar: ");
 	scanf("%s",&s2);
 	
 	printf("informe onde deseja verificar o local de armazenamento (1a a 3a) ordem: ");
 	scanf("%d",&ordem);
-	//executando a função pedida
+	//executando a funÃ§Ã£o pedida
 	return pesquisa(s1,s2,ordem);
 }
 
 int pesquisa (char s1[], char s2[], int ordem)
 {
-	int i,x,cont=1; //cont para verificar a ordem , i para ver qual a primeira palavra da ordem , X para verificar se a palavra do string s2 está em s1 com a ajuda do i
+	int i,x,cont=1; //cont para verificar a ordem , i para ver qual a primeira palavra da ordem , X para verificar se a palavra do string s2 estÃ¡ em s1 com a ajuda do i
 	
 	for (i=1;cont!=ordem;i++)
 	{
-		if(s1[i]=='|') //verificando o \ e definindo a ordem da informações
+		if(s1[i]=='|') //verificando o \ e definindo a ordem da informaÃ§Ãµes
 		{
 			cont++; //contador
 		}
 	}
-	for(x=0,i+1;s1[i]!='|';x++,i++) //condição de parada de verificação  '|'
+	for(x=0,i+1;s1[i]!='|';x++,i++) //condiÃ§Ã£o de parada de verificaÃ§Ã£o  '|'
 	{
 		if(s1[i]!=s2[x])
 		{
 			return 0; //retornando caso nao seja
 		}
 	}
-	return 1; //finalizando com indicação que funciona
+	return 1; //finalizando com indicaÃ§Ã£o que funciona
 }
