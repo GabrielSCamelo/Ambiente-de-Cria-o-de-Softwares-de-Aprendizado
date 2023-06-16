@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>AV2 - Projeto (comporá nota AV2 juntamente com Prova Presencial)</title>
+  <script>
+   function minhafunção(){
+    var Analise = document.getElementById("Info").value;
+    document.getElementById("MAnalise").innerHTML = Analise;
+    alert("Analise inserida!");
+
+    }
+  </script>
+	<style>
+    /*tags CSS feitas separadas, algumas iguais nas outras paginas, com certas diferenças no css, por conta disso não pode ser implementado 
+    arquivo CSS Unico.*/
+    header{
+      border-width: medium;
+      border-style: solid;
+      border-color: blue;
+	    background-image: url(imagens/Aba.jpg);
+      background-size: 1250px 150px;
+      text-decoration: underline;
+      text-align: center;
+      color:darkorange;
+	    font-style: italic;
+    }
+    body{
+      background-color: royalblue;
+      min-height: 100%;
+	    font-size: 14px;
+      font-weight: 550;
+    }
+    nav{
+      border-width: medium;
+      border-style: solid;
+      border-color: black ;
+      background-color: white;
+      width: 999px;
+      height: 100px;
+    }
+    section{
+      border-width: medium;
+      border-style: solid;
+      border-color: black ;
+      background-color: white;
+      width: 999px;
+      height: 400px;
+      
+    }
+    #login{
+      position:absolute; 
+      top:4%;
+      left: 86%;
+      width: 90px;
+      height: 30px;
+    }
+    div{ /*usado como posicionamento das tags no CSS*/
+      position:absolute;
+      left: 13%;
+    }
+    #PRO1{
+      position:absolute;
+      left: 87%;
+    }
+    label{
+      font-size:larger;
+      font-style: italic;
+      color:red;
+    }
+    #l1{
+      position:absolute;
+      top: 20%;
+      left: 1%;
+    }
+    #l2{
+      position:absolute;
+      top: 20%;
+      left: 87%;
+    }
+    .Info{
+    width:300px
+   }
+	</style>
+  </head>
+  <body link="red" vlink="red">
+    <header>
+      <h1>FGamers</h1>
+      <h2>As Melhores analises Só Aqui!</h2>
+      <form id="login" action="Login.html">
+        <input type="submit" value="Login" />
+        <p><pre>Não tem conta 
+ainda ? 
+<a href="Cadastrar.html">Cadastre-se</a></pre></p>
+      </form>
+    </header>
+    <div>
+    <nav>
+        <label>Escreva sua Analise:</label><br>
+        <input type="text" id="Info">
+        <button onclick="minhafunção()">Enviar</button>
+    </nav>
+    <section>
+      <footer>
+      <pre id="MAnalise">
+      </pre>
+    </footer>
+    </section>
+    </div>
+    <aside>
+      <img src="imagens/ABAINTERATIVA.gif" width= "170px" height= "513px">
+      <img src="imagens/Pro1 .gif" width= "170px" height= "511px" id="PRO1">
+      <label id="l1"><pre>Jogar Video Games
+é a melhor coisa 
+da vida!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jogos Retro
+São Os Melhores!</pre></label>
+      <label id="l2"><pre> Abaju Fantasminha 
+ Por Apenas R$ 50.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Até O Pacman 
+   Quer Um!!!
+</pre></label>
+    </aside>
+   </body>
+ </html>

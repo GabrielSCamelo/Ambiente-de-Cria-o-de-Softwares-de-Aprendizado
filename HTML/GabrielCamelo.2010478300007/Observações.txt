@@ -1,0 +1,16 @@
+a pagina Login e register Não realiza uma real operação de login porém 
+tem um aviso de confirmação que está funcionando (mesmo nada ocorrendo)
+
+a pagina projeto que seria a base de tudo, tem como colocar a analise, tentei com textarea
+pega o conteudo do texto e colocar na parte de baixo, mas por conta de falta de conhecimento
+oque eu estava tentando fazer não funcionou, tambem tentei copiar o conteudo do
+textarea na area de analises para ficar gravadas as analises porém não funcionou.
+segue os anexos de paginas pesquisadas:
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_appendchild
+https://cursos.alura.com.br/forum/topico-obter-o-texto-de-um-textarea-e-mostrar-no-p-do-html-com-jquery-40109
+https://pt.stackoverflow.com/questions/369534/javascript-pegar-o-valor-de-um-textarea-n%C3%A3o-est%C3%A1-funcionando
+http://devfuria.com.br/javascript/dom-create-text-node/
+
+todas as paginas consultadas, mas infelizmente n consegui fazer oque queria, porém para n ficar
+sem conteudo coloquei um input, infelizmente na hr de exibir ele n vai exibir o texto
+de maneira correta e não tem como limitador para impedir q o texto saia do quadro branco.
