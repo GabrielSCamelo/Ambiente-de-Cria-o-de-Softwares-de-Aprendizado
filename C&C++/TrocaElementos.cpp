@@ -4,7 +4,7 @@
 #include<time.h>
 #define TAM 4
 
-//funções:
+//funÃ§Ãµes:
 int inversaolinhamatriz(int Mtz1[TAM][TAM],int l1,int l2,int i,int t);
 void elementmatriz(int Mtz1[TAM][TAM]);
 void visualizar(int Mtz1[TAM][TAM]);
@@ -65,7 +65,7 @@ int inversaolinhamatriz(int Mtz1[TAM][TAM],int l1,int l2,int i,int t)
 		}
 	}
 }
-void elementmatriz(int Mtz1[TAM][TAM]) //usada para preencher e visualizar o vetor antes e depois da alteração
+void elementmatriz(int Mtz1[TAM][TAM]) //usada para preencher e visualizar o vetor antes e depois da alteraÃ§Ã£o
 {
 	int i,t;
 	
