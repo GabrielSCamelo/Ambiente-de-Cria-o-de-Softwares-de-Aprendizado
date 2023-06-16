@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <title> Formulário de Registro </title>
+      <script>
+        function minhafunção()
+        {
+          alert("Login Efetuado com Sucesso");
+        }
+      </script>
+      <style>
+      body{
+      background-color: royalblue;
+      min-height: 100%;
+	    font-size: 14px;
+      font-weight: 550;
+      }
+      header{
+      border-width: medium;
+      border-style: solid;
+      border-color: blue;
+	    background-image: url(imagens/Aba.jpg);
+      background-size: 1250px 150px;
+      text-decoration: underline;
+      text-align: center;
+      color:darkorange;
+	    font-style: italic;
+    }
+    nav{
+      border-width: medium;
+      border-style: solid;
+      border-color: black ;
+      background-color: gray;
+      position:absolute;
+      top:25%;
+      left: 35%;
+      width: 400px;
+      height: 300px;
+    }
+    #PRO2{
+      position:absolute;
+      top:75%;
+      left: 17%;
+    }
+    #PROPAGANDA{
+      position:absolute;
+      top:75%;
+      left: 32%;
+      font-size: medium;
+      font-style: italic;
+      color:red;
+    }
+    form{
+      position: absolute;
+      top:23%;
+      left: 28%;
+    }
+    input{
+      border-width: medium;
+      border-style:outset;
+      border-color: black;
+    }
+
+      </style>
+    </head>
+	<body>
+		<header>
+        <h1>FGamers</h1>
+        <h2>As Melhores analises Só Aqui!</h2>
+        </header>
+        <nav> 
+          <form action="Projeto.html">
+            <label>Inserir Usuairo</label><br>
+            <input type="text"><br>
+            <label>Inserir Senha</label><br>
+            <input type="text"><br><br>
+            <input type="submit" onclick="minhafunção()"  Value="Efetuar Login"><br>
+            <p>Não tem conta ainda ? <a href="Cadastrar.html">Cadastre-se</a></p>
+          </form>
+        </nav>
+        <aside>
+        <img src="imagens/Pro3.gif" width= "900px" height= "150px"  id="PRO2">
+        <label id="PROPAGANDA">Venha Conhecer A Historia De Titanfall Compre O Jogo Por Apenas R$ 120. </label>
+        </aside>
+	</body>
+</html>
