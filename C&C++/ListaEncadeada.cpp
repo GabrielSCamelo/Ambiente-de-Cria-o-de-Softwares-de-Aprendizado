@@ -4,7 +4,7 @@
 
 #define TRUE 1
 #define FALSE 0
-//definição de tipos
+//definiÃ§Ã£o de tipos
 typedef struct No {
 	int valor;
 	struct No* prox;
@@ -53,16 +53,16 @@ void exibir (TLista L)
 	{
 		printf ("\nLista: ");
 		
-		//inicializando 'aux' de forma que aponte para o primeiro nó da lista
+		//inicializando 'aux' de forma que aponte para o primeiro nÃ³ da lista
 		aux = L;
 		
-		//percorrendo todos os nós da lista
+		//percorrendo todos os nÃ³s da lista
 		while (aux != NULL) //while (aux) 
 		{
 			//exibindo o valor apontado pelo 'aux'
 			printf ("%d ", aux->valor);
 			
-			//andar com o 'aux' de forma que ele aponte para o próximo nó
+			//andar com o 'aux' de forma que ele aponte para o prÃ³ximo nÃ³
 			aux = aux->prox;
 		}		
 	}
@@ -70,23 +70,23 @@ void exibir (TLista L)
 
 int inserir (TLista *L, int numero)
 {
-	//Declaração de variáveis
+	//DeclaraÃ§Ã£o de variÃ¡veis
 	TLista aux;
 	
-	//Passo1: alocar memória para o novo elemento
+	//Passo1: alocar memÃ³ria para o novo elemento
 	aux = (TLista) malloc (sizeof(TNo));
 
-	//verificando se a memória solicitada não foi alocada
+	//verificando se a memÃ³ria solicitada nÃ£o foi alocada
 	if (aux == NULL)
 	{
 		return FALSE;
 	}
 	else
 	{
-		//Passo2: armazenar o novo valor na memória recém alocada
+		//Passo2: armazenar o novo valor na memÃ³ria recÃ©m alocada
 		aux->valor = numero;
 		
-		//Passo3: fazer o novo nó apontar para o nó que, até então, era o primeiro da lista.
+		//Passo3: fazer o novo nÃ³ apontar para o nÃ³ que, atÃ© entÃ£o, era o primeiro da lista.
 		aux->prox = *L;
 		
 		//Passo4: fazer com que o L aponte para o novo elemento
