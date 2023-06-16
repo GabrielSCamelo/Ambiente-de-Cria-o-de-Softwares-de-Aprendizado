@@ -1,0 +1,9 @@
+Individualmente cada aluno deve montar 1 página que contenha:
+
+- cabeçalho e rodapé
+- uma tabela de preços e produtos
+- um formulário para compras dos produtos
+- no mínimo, uma imagem ou um vídeo sobre o assunto do produto
+- Estilo usando CSS inline ou interno
+- Permitido uso de Google Fonts
+Opções de produtos: artigos de informática, brinquedos ou lojas de roupas
