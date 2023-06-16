@@ -10,7 +10,7 @@ Exemplo 2:
 Inicialmente:  1SUG47EFG
 Ao final:      GSUGFE741
 */
-//funções
+//funÃ§Ãµes
 int validadebloqueio(char str[],int TAM);
 int tamanho(char str[]);
 void trocaordenada(char str[],int i);
@@ -73,14 +73,14 @@ void trocaordenada(char str[],int i) //recursividade aplicada
     	str[tamanho(str)]='|';	
     }
 	
-	if(str[i]!='|') //caracter nao disponivel para utilização
+	if(str[i]!='|') //caracter nao disponivel para utilizaÃ§Ã£o
 	{
 	
-	if((toupper(str[i]) >= 'A') && (toupper(str[i]) <= 'Z')) //é letra
+	if((toupper(str[i]) >= 'A') && (toupper(str[i]) <= 'Z')) //Ã© letra
 	{
 		return trocaordenada(str,i+1); //andando com a string e verificando o proximo caracter utilizando recursividade
     }
-    else //não é letra
+    else //nÃ£o Ã© letra
     {
     	temp=str[i]; //salvando o numero
     	for(x=i;str[x+1]!='\0';x++) //movendo para frente os caracter 
@@ -88,7 +88,7 @@ void trocaordenada(char str[],int i) //recursividade aplicada
     		str[x]=str[x+1];
 		}
 		str[x]=temp; //jogando antes do '\0'
-    	return trocaordenada(str,i); //ta sem i++ para verificar a msm posição novamente depois do deslocamento das letras no lugar do numero.
+    	return trocaordenada(str,i); //ta sem i++ para verificar a msm posiÃ§Ã£o novamente depois do deslocamento das letras no lugar do numero.
 	}
     }
     else
@@ -99,7 +99,7 @@ void trocaordenada(char str[],int i) //recursividade aplicada
 	}	
 	}
 }
-int tamanho(char str[]) //função da biblioteca string.h com erro (não funcional para este programa) , implementada uma para a situação
+int tamanho(char str[]) //funÃ§Ã£o da biblioteca string.h com erro (nÃ£o funcional para este programa) , implementada uma para a situaÃ§Ã£o
 {
 	int i;
 	
