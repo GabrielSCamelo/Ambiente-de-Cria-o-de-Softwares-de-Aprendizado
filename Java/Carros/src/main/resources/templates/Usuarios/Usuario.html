@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página do Cliente</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        p {
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Página do Cliente</h1>
+    <p>Bem-vindo, Cliente</p>
+    <button class="button" onclick="listarCarros()">Listar Carros</button>
+    <button class="button" onclick="sair()">Sair</button>
+
+    <script>
+        function listarCarros() {
+            window.location.href = "TimeOut.html";
+        }
+        
+        function sair() {
+            window.location.href = "logout";
+        }
+        
+        var nomeCliente = "Nome do Cliente";
+        document.getElementById("clientName").textContent = nomeCliente;
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Alugar Carro</title>
+    <style>
+        /* Estilos CSS aqui */
+    </style>
+</head>
+<body>
+    <h1>Alugar Carro</h1>
+    <form id="aluguelForm" action="/aluguel/inserir" method="post">
+        <input type="hidden" id="idCarro" name="idCarro" value="${carro.id}">
+        <input type="hidden" id="valorCarro" value="${carro.valorLocacao}">
+        
+        <label for="dataInicio">Data de Início:</label>
+        <input type="date" id="dataInicio" name="dataInicio" required>
+        
+        <label for="dataFim">Data de Fim:</label>
+        <input type="date" id="dataFim" name="dataFim" required>
+        
+        <label for="metodoPagamento">Método de Pagamento:</label>
+        <select id="metodoPagamento" name="metodoPagamento" required>
+            <option value="cartao">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
+            <option value="transferencia">Transferência Bancária</option>
+        </select>
+        
+        <label>Informações do Carro:</label>
+        <p>ID: ${carro.id}</p>
+        <p>Valor do Carro: ${carro.valorLocacao}</p>
+        
+        <p id="valorTotal">Valor Total: 0</p>
+        
+        <input type="submit" value="Alugar">
+    </form>
+    <script>
+	    const aluguelForm = document.getElementById('aluguelForm');
+		const dataInicioInput = document.getElementById('dataInicio');
+		const dataFimInput = document.getElementById('dataFim');
+		const valorCarroInput = document.getElementById('valorCarro');
+		const valorTotalOutput = document.getElementById('valorTotal');
+		
+		aluguelForm.addEventListener('submit', function(event) {
+		    event.preventDefault();
+		
+		    const dataInicio = new Date(dataInicioInput.value);
+		    const dataFim = new Date(dataFimInput.value);
+		    const diffTime = Math.abs(dataFim - dataInicio);
+		    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+		    const valorCarro = parseFloat(valorCarroInput.value);
+		    const valorTotal = Math.ceil((diffDays / 7) * valorCarro);
+		
+		    valorTotalOutput.textContent = `Valor Total: ${valorTotal}`;
+		
+		    const idCarro = document.getElementById('idCarro').value;
+		    const metodoPagamento = document.getElementById('metodoPagamento').value;
+		
+		    // Criar objeto com os dados do aluguel
+		    const aluguel = {
+		        dataInicio: dataInicio.toISOString(),
+		        dataFim: dataFim.toISOString(),
+		        valorTotal: valorTotal,
+		        metodoPagamento: metodoPagamento,
+		        idCarro: idCarro
+		    };
+		
+		    fetch('/aluguel/inserir', {
+		        method: 'POST',
+		        headers: {
+		            'Content-Type': 'application/json'
+		        },
+		        body: JSON.stringify(aluguel)
+		    })
+		    .then(response => response.json())
+		    .then(data => {
+		        console.log('Aluguel inserido com sucesso:', data);
+		        
+		    })
+		    .catch(error => {
+		        console.error('Erro ao inserir o aluguel:', error);
+		        
+		    });
+		});
+	</script>
+</body>
+</html>

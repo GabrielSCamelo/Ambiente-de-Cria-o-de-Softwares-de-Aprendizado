@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Página do Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        p {
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function listarCarros() {
+            // Redirecionar para a página de listagem de carros
+            window.location.href = "../ListarCarrosAdminstrador.html";
+        }
+        
+        function listarUsuarios() {
+            // Redirecionar para a página de listagem de usuários
+            window.location.href = "../ListarUsuarios.html";
+        }
+        
+        function listarAlugueis() {
+            // Redirecionar para a página de listagem de aluguéis
+            window.location.href = "../ListarAluguel.html";
+        }
+        
+        function logout() {
+            // Redirecionar para a página de logout
+            window.location.href = "../TimeOut.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Página do Administrador</h1>
+    <p>Bem-vindo, Administrador!</p>
+    <button class="button" onclick="listarCarros()">Listar Carros</button>
+    <button class="button" onclick="listarUsuarios()">Listar Usuários</button>
+    <button class="button" onclick="listarAlugueis()">Listar Aluguéis</button>
+    <button class="button" onclick="logout()">Sair</button>
+</body>
+</html>
+

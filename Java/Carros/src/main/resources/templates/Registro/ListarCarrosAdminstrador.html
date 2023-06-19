@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Carros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #ebebeb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listar Carros</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Placa</th>
+                <th>Cor</th>
+                <th>Número de Portas</th>
+                <th>Tipo de Combustível</th>
+                <th>Quilometragem</th>
+                <th>Renavam</th>
+                <th>Chassi</th>
+                <th>Valor de Locação</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="carro : ${carros}">
+                <td th:text="${carro.marca}"></td>
+                <td th:text="${carro.modelo}"></td>
+                <td th:text="${carro.ano}"></td>
+                <td th:text="${carro.placa}"></td>
+                <td th:text="${carro.cor}"></td>
+                <td th:text="${carro.numeroPortas}"></td>
+                <td th:text="${carro.tipoCombustivel}"></td>
+                <td th:text="${carro.quilometragem}"></td>
+                <td th:text="${carro.renavam}"></td>
+                <td th:text="${carro.chassi}"></td>
+                <td th:text="${carro.valorLocacao}"></td>
+                <td>
+                    <form th:action="@{/carros/delete/{id}(id=${carro.id})}" method="post" style="display: inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form th:action="@{/carros/edit/{id}(id=${carro.id})}" method="get" style="display: inline;">
+                        <button type="submit">Atualizar</button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${carros.size() == 0}">
+                <td colspan="12">Nenhum carro encontrado.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

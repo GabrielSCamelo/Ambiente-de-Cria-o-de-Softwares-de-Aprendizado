@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Carro</title>
+    <style>
+    .error-message {
+        color: red;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    form {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border: 2px solid #ccc; /* Nova linha: adiciona uma borda de 2px */
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    input[type="submit"]:focus {
+        outline: none;
+    }
+</style>
+</head>
+<body>
+    <h1>Formulário de Carro</h1>
+    <form th:action="@{/carros/salvar}" th:object="${carroForm}" method="post">
+       <label>Marca:</label>
+		<input type="text" id="marca" name="marca" pattern="[A-Za-z]+" required>
+		<span id="marca-error" class="error-message"></span><br/>
+		
+		<label>Modelo:</label>
+		<input type="text" id="modelo" name="modelo" pattern="[A-Za-z0-9]+" required>
+		<span id="modelo-error" class="error-message"></span><br/>
+		
+		<label>Ano:</label>
+		<input type="text" id="ano" name="ano" pattern="[0-9]{4}" required>
+		<span id="ano-error" class="error-message"></span><br/>
+		
+		<label>Placa:</label>
+		<input type="text" id="placa" name="placa" pattern="[A-Z]{3}-[0-9]{4}" required>
+		<span id="placa-error" class="error-message"></span><br/>
+
+		
+		<label>Cor:</label>
+		<input type="text" id="cor" name="cor" pattern="[A-Za-z]+" required>
+		<span id="cor-error" class="error-message"></span><br/>
+		
+		<label>Número de Portas:</label>
+		<input type="number" id="numeroPortas" name="numeroPortas" min="1" max="5" required>
+		<span id="numeroPortas-error" class="error-message"></span><br/>
+
+		
+		<label>Tipo de Combustível:</label>
+		<select id="tipoCombustivel" name="tipoCombustivel" required>
+		  <option disabled selected value="">Selecione...</option>
+		  <option value="etanol">Etanol</option>
+		  <option value="gasolina">Gasolina</option>
+		  <option value="diesel">Diesel</option>
+		</select>
+		<span id="tipoCombustivel-error" class="error-message"></span><br/>
+		
+		<label>Quilometragem:</label>
+		<input type="text" id="quilometragem" name="quilometragem" pattern="[0-9]+" required>
+		<span id="quilometragem-error" class="error-message"></span><br/>
+		
+		<label>Renavam:</label>
+		<input type="text" id="renavam" name="renavam" pattern="[0-9]{11}" required>
+		<span id="renavam-error" class="error-message"></span><br/>
+
+		
+		<label>Chassi:</label>
+		<input type="text" id="chassi" name="chassi" pattern="[A-Za-z0-9]+" required>
+		<span id="chassi-error" class="error-message"></span><br/>
+		
+		<label>Valor de Locação:</label>
+		<input type="text" id="valorLocacao" name="valorLocacao" pattern="R\$ [0-9]+(\.[0-9]{2})?" required>
+		<span id="valorLocacao-error" class="error-message"></span><br/>
+
+        <input type="submit" value="Salvar" />
+    </form>
+	    <script>
+			  document.addEventListener('DOMContentLoaded', function() {
+			    var form = document.querySelector('form');
+			    var marcaInput = document.getElementById('marca');
+			    var modeloInput = document.getElementById('modelo');
+			    var anoInput = document.getElementById('ano');
+			    var placaInput = document.getElementById('placa');
+			    var corInput = document.getElementById('cor');
+			    var numeroPortasInput = document.getElementById('numeroPortas');
+			    var tipoCombustivelInput = document.getElementById('tipoCombustivel');
+			    var quilometragemInput = document.getElementById('quilometragem');
+			    var renavamInput = document.getElementById('renavam');
+			    var chassiInput = document.getElementById('chassi');
+			    var valorLocacaoInput = document.getElementById('valorLocacao');
+			
+			    form.addEventListener('submit', function(event) {
+			      var isFormValid = true;
+					
+		        placaInput.addEventListener('input', function(event) {
+		    	    var placaValue = event.target.value;
+		    	    
+		    	    if (placaValue.length === 3) {
+		    	      placaValue += '-';
+		    	    }
+		    	    
+		    	    event.target.value = placaValue;
+		    	  });
+		      
+			      if (!anoInput.checkValidity()) {
+			        document.getElementById('ano-error').textContent = 'Ano inválido';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('ano-error').textContent = '';
+			      }
+			
+			      if (!placaInput.checkValidity() || !validarPlaca(placaInput.value)) {
+			    	  document.getElementById('placa-error').textContent = 'Placa inválida';
+			    	  isFormValid = false;
+			    	} else {
+			    	  document.getElementById('placa-error').textContent = '';
+			    	}
+			
+			      if (!corInput.checkValidity()) {
+			        document.getElementById('cor-error').textContent = 'Cor inválida';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('cor-error').textContent = '';
+			      }
+			
+			      if (!numeroPortasInput.checkValidity()) {
+			        document.getElementById('numeroPortas-error').textContent = 'Número de portas inválido';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('numeroPortas-error').textContent = '';
+			      }
+			      if (tipoCombustivelInput.value === '') {
+			          document.getElementById('tipoCombustivel-error').textContent = 'Selecione um tipo de combustível';
+			          isFormValid = false;
+			        } else {
+			          document.getElementById('tipoCombustivel-error').textContent = '';
+			        }			
+			      if (!quilometragemInput.checkValidity()) {
+			        document.getElementById('quilometragem-error').textContent = 'Quilometragem inválida';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('quilometragem-error').textContent = '';
+			      }
+			
+			      if (!renavamInput.checkValidity()) {
+			        document.getElementById('renavam-error').textContent = 'Renavam inválido';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('renavam-error').textContent = '';
+			      }
+			
+			      if (!chassiInput.checkValidity()) {
+			        document.getElementById('chassi-error').textContent = 'Chassi inválido';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('chassi-error').textContent = '';
+			      }
+			
+			      if (!valorLocacaoInput.checkValidity()) {
+			        document.getElementById('valorLocacao-error').textContent = 'Valor de Locação inválido';
+			        isFormValid = false;
+			      } else {
+			        document.getElementById('valorLocacao-error').textContent = '';
+			      }
+			
+			      if (!isFormValid) {
+			        event.preventDefault(); // Impede o envio do formulário se houver erros
+			      }
+			    });
+			  });
+		</script>
+	</body>
+</html>

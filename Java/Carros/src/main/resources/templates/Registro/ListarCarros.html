@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Carros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #ebebeb;
+        }
+        
+        form {
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"],
+        input[type="number"] {
+            padding: 8px;
+        }
+        
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        input[type="submit"]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Listar Carros</h1>
+    <form id="filterForm">
+        <label for="modelo">Modelo:</label>
+        <input type="text" id="modelo" name="modelo">
+        
+        <label for="anoMin">Ano mínimo:</label>
+        <input type="number" id="anoMin" name="anoMin" min="1980" max="2023">
+        
+        <label for="anoMax">Ano máximo:</label>
+        <input type="number" id="anoMax" name="anoMax" min="1981" max="2023">
+        
+        <label for="valorMin">Valor mínimo:</label>
+        <input type="number" id="valorMin" name="valorMin" min="100" max="1500">
+        
+        <label for="valorMax">Valor máximo:</label>
+        <input type="number" id="valorMax" name="valorMax" min="200" max="1500">
+        
+        <input type="submit" value="Filtrar">
+    </form>
+    
+    <table id="carrosTable">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano</th>
+                <th>Placa</th>
+                <th>Cor</th>
+                <th>Número de Portas</th>
+                <th>Tipo de Combustível</th>
+                <th>Quilometragem</th>
+                <th>Renavam</th>
+                <th>Chassi</th>
+                <th>Valor de Locação</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="carro : ${carros}">
+                <td th:text="${carro.marca}"></td>
+                <td th:text="${carro.modelo}"></td>
+                <td th:text="${carro.ano}"></td>
+                <td th:text="${carro.placa}"></td>
+                <td th:text="${carro.cor}"></td>
+                <td th:text="${carro.numeroPortas}"></td>
+                <td th:text="${carro.tipoCombustivel}"></td>
+                <td th:text="${carro.quilometragem}"></td>
+                <td th:text="${carro.renavam}"></td>
+                <td th:text="${carro.chassi}"></td>
+                <td th:text="${carro.valorLocacao}"></td>
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const filterForm = document.getElementById('filterForm');
+        const carrosTable = document.getElementById('carrosTable');
+
+        filterForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const modelo = document.getElementById('modelo').value;
+            const dataMin = document.getElementById('dataMin').value;
+            const dataMax = document.getElementById('dataMax').value;
+            const valorMin = document.getElementById('valorMin').value;
+            const valorMax = document.getElementById('valorMax').value;
+
+            const carros = carrosTable.getElementsByTagName('tr');
+
+            for (let i = 1; i < carros.length; i++) {
+                const carro = carros[i];
+                const modeloCell = carro.cells[1];
+                const dataCell = carro.cells[2];
+                const valorCell = carro.cells[10];
+
+                const modeloMatch = modelo === '' || modeloCell.innerText.includes(modelo);
+                const dataMatch = (dataMin === '' || dataCell.innerText >= dataMin) &&
+                                  (dataMax === '' || dataCell.innerText <= dataMax);
+                const valorMatch = (valorMin === '' || parseFloat(valorCell.innerText) >= parseFloat(valorMin)) &&
+                                   (valorMax === '' || parseFloat(valorCell.innerText) <= parseFloat(valorMax));
+
+                if (modeloMatch && dataMatch && valorMatch) {
+                    carro.style.display = 'table-row';
+                } else {
+                    carro.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

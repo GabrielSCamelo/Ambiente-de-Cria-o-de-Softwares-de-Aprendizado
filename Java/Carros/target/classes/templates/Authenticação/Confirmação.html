@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="UTF-8">
+    	<title>Confirmação de Registro</title>
+   		 <style>
+			 body {
+			  font-family: Arial, sans-serif;
+			  background-color: #f7f7f7;
+			}
+			
+			.container {
+			  max-width: 600px;
+			  margin: 0 auto;
+			  padding: 20px;
+			  background-color: #fff;
+			  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+			
+			h1 {
+			  color: #333;
+			  text-align: center;
+			  margin-bottom: 30px;
+			}
+			
+			p {
+			  margin-bottom: 10px;
+			}
+			
+			.success-message {
+			  color: #008000;
+			  font-weight: bold;
+			}
+			
+			/* Estilos interativos */
+			.container:hover {
+			  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			}
+			
+			.container p {
+			  transition: color 0.3s ease-in-out;
+			}
+			
+			.container:hover p {
+			  color: #ff0000;
+			}
+    
+    	</style>
+	</head>
+	<body>
+	    <h1>Confirmação de Registro</h1>
+	    <p>Nome: ${cliente.nome}</p>
+	    <p>Email: ${cliente.email}</p>
+	    <p>Telefone: ${cliente.telefone}</p>
+	    <form action="/confirmacao" method="post">
+	    	<input type="hidden" name="confirmacao" value="confirmar">
+	    	<input type="submit" value="Confirmar">
+	    </form>
+	    <form action="/confirmacao" method="post">
+	    	<input type="hidden" name="confirmacao" value="excluir">
+	    	<input type="submit" value="Excluir">
+	    </form>
+	</body>
+</html>
