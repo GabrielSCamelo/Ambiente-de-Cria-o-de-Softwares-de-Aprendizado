@@ -15,9 +15,12 @@ import java.util.List;
 
 @Controller
 public class ControladorAluguel {
+    private final RepositorioAluguel aluguelRepository;
 
     @Autowired
-    private RepositorioAluguel aluguelRepository;
+    public ControladorAluguel(RepositorioAluguel aluguelRepository) {
+        this.aluguelRepository = aluguelRepository;
+    }
 
     @PostMapping("/aluguel/inserir")
     public String inserirAluguel(@RequestParam("dataInicio") LocalDateTime dataInicio,

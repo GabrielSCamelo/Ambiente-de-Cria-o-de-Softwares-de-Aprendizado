@@ -8,8 +8,5 @@ import Modelo.Aluguel;
 
 @Repository
 public interface RepositorioAluguel extends JpaRepository<Aluguel, Long> {
-    
     List<Aluguel> findAll();
-    
 }
-

@@ -4,65 +4,60 @@
     <meta charset="UTF-8">
     <title>Formulário de Carro</title>
     <style>
-    .error-message {
-        color: red;
-    }
-
     body {
-        font-family: Arial, sans-serif;
-        background-color: #f7f7f7;
-        padding: 20px;
-    }
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
 
-    h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 30px;
-    }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc;
+        }
 
-    form {
-        width: 300px;
-        margin: 0 auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border: 2px solid #ccc; /* Nova linha: adiciona uma borda de 2px */
-    }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
 
-    label {
-        display: block;
-        margin-bottom: 10px;
-        color: #555;
-    }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
 
-    input[type="text"],
-    input[type="number"],
-    select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-    }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    input[type="submit"] {
-        background-color: #4caf50;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
 
-    input[type="submit"]:hover {
-        background-color: #45a049;
-    }
-
-    input[type="submit"]:focus {
-        outline: none;
-    }
+        input[type="submit"]:focus {
+            outline: none;
+        }
 </style>
 </head>
 <body>

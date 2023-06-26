@@ -10,5 +10,7 @@ import Modelo.Cliente;
 public interface RepositorioCliente extends JpaRepository<Cliente, Long> {
     
     List<Cliente> findAll();
+
+	Cliente findByNome(String username);
     
 }

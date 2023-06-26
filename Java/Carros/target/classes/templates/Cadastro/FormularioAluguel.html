@@ -4,13 +4,66 @@
     <meta charset="UTF-8">
     <title>Alugar Carro</title>
     <style>
-        /* Estilos CSS aqui */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="submit"]:focus {
+            outline: none;
+        }
     </style>
 </head>
 <body>
     <h1>Alugar Carro</h1>
     <form id="aluguelForm" action="/aluguel/inserir" method="post">
-        <input type="hidden" id="idCarro" name="idCarro" value="${carro.id}">
+        <input type="hidden" id="placaCarro" name="placaCarro" value="${carro.id}">
         <input type="hidden" id="valorCarro" value="${carro.valorLocacao}">
         
         <label for="dataInicio">Data de Início:</label>
@@ -25,63 +78,63 @@
             <option value="boleto">Boleto Bancário</option>
             <option value="transferencia">Transferência Bancária</option>
         </select>
-        
-        <label>Informações do Carro:</label>
-        <p>ID: ${carro.id}</p>
+        <br><br><label>Informações do Carro:</label>
+        <p>Placa do Carro: ${carro.id}</p>
         <p>Valor do Carro: ${carro.valorLocacao}</p>
         
         <p id="valorTotal">Valor Total: 0</p>
         
         <input type="submit" value="Alugar">
     </form>
+
     <script>
-	    const aluguelForm = document.getElementById('aluguelForm');
-		const dataInicioInput = document.getElementById('dataInicio');
-		const dataFimInput = document.getElementById('dataFim');
-		const valorCarroInput = document.getElementById('valorCarro');
-		const valorTotalOutput = document.getElementById('valorTotal');
-		
-		aluguelForm.addEventListener('submit', function(event) {
-		    event.preventDefault();
-		
-		    const dataInicio = new Date(dataInicioInput.value);
-		    const dataFim = new Date(dataFimInput.value);
-		    const diffTime = Math.abs(dataFim - dataInicio);
-		    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-		    const valorCarro = parseFloat(valorCarroInput.value);
-		    const valorTotal = Math.ceil((diffDays / 7) * valorCarro);
-		
-		    valorTotalOutput.textContent = `Valor Total: ${valorTotal}`;
-		
-		    const idCarro = document.getElementById('idCarro').value;
-		    const metodoPagamento = document.getElementById('metodoPagamento').value;
-		
-		    // Criar objeto com os dados do aluguel
-		    const aluguel = {
-		        dataInicio: dataInicio.toISOString(),
-		        dataFim: dataFim.toISOString(),
-		        valorTotal: valorTotal,
-		        metodoPagamento: metodoPagamento,
-		        idCarro: idCarro
-		    };
-		
-		    fetch('/aluguel/inserir', {
-		        method: 'POST',
-		        headers: {
-		            'Content-Type': 'application/json'
-		        },
-		        body: JSON.stringify(aluguel)
-		    })
-		    .then(response => response.json())
-		    .then(data => {
-		        console.log('Aluguel inserido com sucesso:', data);
-		        
-		    })
-		    .catch(error => {
-		        console.error('Erro ao inserir o aluguel:', error);
-		        
-		    });
-		});
-	</script>
+        const aluguelForm = document.getElementById('aluguelForm');
+        const valorCarroInput = document.getElementById('valorCarro');
+        const valorTotalOutput = document.getElementById('valorTotal');
+        const dataInicioInput = document.getElementById('dataInicio');
+        const dataFimInput = document.getElementById('dataFim');
+
+        aluguelForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const dataInicio = new Date(dataInicioInput.value);
+            const dataFim = new Date(dataFimInput.value);
+            const diffTime = Math.abs(dataFim - dataInicio);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const valorCarro = parseFloat(valorCarroInput.value);
+            const valorTotal = Math.ceil((diffDays / 7) * valorCarro);
+        
+            valorTotalOutput.textContent = `Valor Total: ${valorTotal}`;
+        
+            const placaCarro = document.getElementById('placaCarro').value;
+            const metodoPagamento = document.getElementById('metodoPagamento').value;
+        
+            // Criar objeto com os dados do aluguel
+            const aluguel = {
+                dataInicio: dataInicio.toISOString(),
+                dataFim: dataFim.toISOString(),
+                valorTotal: valorTotal,
+                metodoPagamento: metodoPagamento,
+                placaCarro: placaCarro
+            };
+        
+            fetch('/aluguel/inserir', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(aluguel)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Aluguel inserido com sucesso:', data);
+                
+            })
+            .catch(error => {
+                console.error('Erro ao inserir o aluguel:', error);
+                
+            });
+        });
+    </script>
 </body>
 </html>

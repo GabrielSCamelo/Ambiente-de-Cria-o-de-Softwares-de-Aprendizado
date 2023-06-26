@@ -34,6 +34,7 @@ public class ControladorCarro {
             Carro carro = carroExistente.get();
             carro.setMarca(carroAtualizado.getMarca());
             carro.setModelo(carroAtualizado.getModelo());
+            // Implemente as outras atualizações de atributos do carro aqui
 
             Carro carroAtualizado1 = repositorioCarro.save(carro);
             return ResponseEntity.ok(carroAtualizado1);
@@ -79,3 +80,4 @@ public class ControladorCarro {
         return "listarCarros";
     }
 }
+

@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Listar Aluguéis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ccc;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #ebebeb;
+        }
+    </style>
 </head>
 <body>
-
+    <h1>Listar Aluguéis</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Data de Início</th>
+            <th>Data de Fim</th>
+            <th>Valor Total</th>
+            <th>Nome da Pessoa</th>
+            <th>Placa do Carro</th>
+        </tr>
+        <tr th:each="aluguel : ${alugueis}">
+            <td th:text="${aluguel.id}"></td>
+            <td th:text="${aluguel.dataInicio}"></td>
+            <td th:text="${aluguel.dataFim}"></td>
+            <td th:text="${aluguel.valorTotal}"></td>
+            <td th:text="${aluguel.nomePessoa}"></td>
+            <td th:text="${aluguel.placaCarro}"></td>
+        </tr>
+    </table>
 </body>
 </html>

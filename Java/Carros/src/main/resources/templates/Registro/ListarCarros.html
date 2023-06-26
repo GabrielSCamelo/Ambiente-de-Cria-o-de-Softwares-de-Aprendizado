@@ -6,67 +6,69 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
-            background-color: #f7f7f7;
+            padding: 0;
         }
-        
+
         h1 {
-            color: #333;
             text-align: center;
-            margin-bottom: 30px;
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-top: 0;
         }
-        
+
         table {
-            border-collapse: collapse;
             width: 100%;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-        
+
         th, td {
-            padding: 12px 15px;
+            padding: 10px;
             text-align: left;
         }
-        
+
         th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-            color: #555;
+            background-color: #ccc;
         }
-        
+
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        
+
         tr:hover {
             background-color: #ebebeb;
         }
-        
-        form {
+
+        /* Estilo específico para a página "Listar Carros" com filtragem */
+        #filterForm {
+            text-align: center;
             margin-bottom: 20px;
         }
-        
-        input[type="text"],
-        input[type="number"] {
-            padding: 8px;
+
+        #filterForm label {
+            display: inline-block;
+            margin-right: 10px;
         }
-        
-        input[type="submit"] {
-            background-color: #4caf50;
+
+        #filterForm input[type="text"],
+        #filterForm input[type="number"] {
+            padding: 5px;
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        #filterForm input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #333;
             color: #fff;
-            padding: 6px 12px;
             border: none;
-            border-radius: 4px;
             cursor: pointer;
         }
-        
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        
-        input[type="submit"]:focus {
-            outline: none;
+
+        #filterForm input[type="submit"]:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -109,7 +111,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="carro : ${carros}">
+            <tr th:each="carro, carInfo : ${carros}">
                 <td th:text="${carro.marca}"></td>
                 <td th:text="${carro.modelo}"></td>
                 <td th:text="${carro.ano}"></td>
@@ -122,7 +124,14 @@
                 <td th:text="${carro.chassi}"></td>
                 <td th:text="${carro.valorLocacao}"></td>
                 <td>
-                </td>
+				 <form action="/FormularioAluguel" method="GET">
+				      <input type="hidden" name="placa__${carInfo.index}" th:text="${carro.placa}">
+				      <button type="submit">Alugar</button>
+				 </form>
+				</td>
+            </tr>
+            <tr th:if="${carros.size() == 0}">
+                <td colspan="12">Nenhum carro encontrado.</td>
             </tr>
         </tbody>
     </table>

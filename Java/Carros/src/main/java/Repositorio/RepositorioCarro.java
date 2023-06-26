@@ -2,6 +2,7 @@ package Repositorio;
 
 import java.util.Date;
 import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +12,12 @@ import Modelo.Carro;
 
 @Repository
 public interface RepositorioCarro extends JpaRepository<Carro, Long> {
+
+    // Salvar um carro
+    Carro save(Carro carro);
+
+    // Alterar um carro
+    Carro saveAndFlush(Carro carro);
 
     // Buscar todos os carros
     List<Carro> findAll();

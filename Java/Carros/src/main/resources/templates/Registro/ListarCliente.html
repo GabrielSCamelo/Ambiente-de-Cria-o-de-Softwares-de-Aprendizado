@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <title>Listagem de Clientes</title>
     <style>
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin-top: 0;
+        }
+
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-        
+
         th, td {
+            padding: 10px;
             text-align: left;
-            padding: 8px;
         }
-        
+
         th {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #ccc;
         }
-        
+
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
-    </style>
+
+        tr:hover {
+            background-color: #ebebeb;
+        }
+     </style>
 </head>
 <body>
     <h1>Listagem de Clientes</h1>
@@ -34,7 +52,6 @@
             <th>Telefone</th>
             <th>Senha</th>
         </tr>
-        <!-- Início do loop para preencher as linhas da tabela com os clientes -->
             <tr th:each="cliente : ${clientes}">
             <td th:text="${cliente.id}"></td>
             <td th:text="${cliente.nome}"></td>
@@ -42,7 +59,6 @@
             <td th:text="${cliente.telefone}"></td>
             <td th:text="${cliente.senha}"></td>
         </tr>
-        <!-- Fim do loop -->
     </table>
 </body>
 </html>

@@ -71,5 +71,8 @@
         
         <input type="submit" value="Entrar">
     </form>
+    <p class="error-message" th:if="${param.error}">
+        Nome de usuário ou senha inválidos
+    </p>
 </body>
 </html>
