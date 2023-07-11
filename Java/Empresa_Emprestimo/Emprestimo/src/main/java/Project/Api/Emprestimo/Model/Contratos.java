@@ -30,8 +30,17 @@ public class Contratos implements Serializable{
 	private String codcontrato;
 	private int parcela;
 	private double valorContrato;
+	public double getComissãoempresa() {
+		return comissãoempresa;
+	}
+
+	public void setComissãoempresa(double comissãoempresa) {
+		this.comissãoempresa = comissãoempresa;
+	}
+
 	private double juros;
 	private LocalDate data;
+	private double comissãoempresa;
 	
 	//Relacionamento
 	@ManyToOne

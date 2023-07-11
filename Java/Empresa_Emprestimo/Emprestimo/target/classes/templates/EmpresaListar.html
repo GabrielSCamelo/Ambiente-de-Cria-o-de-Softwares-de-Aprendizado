@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Empresas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+    <div>
+    <h2>Buscar Empresa</h2>
+    <form th:action="@{/empresas/buscar}" method="get">
+        <input type="text" name="cnpj" placeholder="Digite o CNPJ da empresa" required>
+        <button type="submit">Buscar</button>
+    </form>
+	</div>
+    <!-- Se há uma empresa selecionada, exibir detalhes -->
+        <div th:if="${empresaDetalhes != null}">
+            <h2>Lista Empresa Especifica</h2>
+            <table>
+                <tr>
+                    <th>CNPJ</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                </tr>
+                <tr>
+                    <td th:text="${empresaDetalhes.cnpj}"></td>
+                    <td th:text="${empresaDetalhes.nome}"></td>
+                    <td th:text="${empresaDetalhes.descricao}"></td>
+                </tr>
+            </table>
+        </div>
+        <h2>Listagem Todas Empresas</h2>
+        <table>
+            <tr>
+                <th>CNPJ</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+            </tr>
+            <!-- Iterar sobre a lista de empresas e exibir cada uma -->
+            <tr th:each="empresa : ${empresas}">
+                <td th:text="${empresa.cnpj}"></td>
+                <td th:text="${empresa.nome}"></td>
+                <td th:text="${empresa.descricao}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

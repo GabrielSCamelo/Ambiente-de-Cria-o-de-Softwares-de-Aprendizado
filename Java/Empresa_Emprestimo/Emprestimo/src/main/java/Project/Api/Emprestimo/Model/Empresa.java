@@ -24,13 +24,22 @@ public class Empresa implements Serializable{
 	private String descrição;
 	private String nome;
 	private String cnpj;
-	private double EmpComissão;
 	
 	//Relacionamento
 	@OneToMany(mappedBy = "empresa") //varios funcionarios podem trabalhar em 1 empresa
     private List<Funcionario> funcionario;
 
 	// Getters e setters
+	
+
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -63,20 +72,6 @@ public class Empresa implements Serializable{
 		this.cnpj = cnpj;
 	}
 
-	public List<Funcionario> getFuncionario() {
-		return funcionario;
-	}
-
-	public void setFuncionario(List<Funcionario> funcionario) {
-		this.funcionario = funcionario;
-	}
-
-	public double getEmpComissão() {
-		return EmpComissão;
-	}
-
-	public void setEmpComissão(double empComissão) {
-		EmpComissão = empComissão;
-	}
+	
 
 }

@@ -19,7 +19,7 @@ public class PagamentoService {
 
         for (int i = 0; i < parcelas; i++) {
             Pagamento pagamento = new Pagamento();
-            pagamento.setValorParcela(valorParcela);
+            pagamento.setValorparcela(valorParcela);
             pagamento.setContrato(contrato);
 
             LocalDate dataPagamento = dataContrato.plusMonths(i).withDayOfMonth(dataContrato.lengthOfMonth());

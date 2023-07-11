@@ -7,5 +7,5 @@ import Project.Api.Emprestimo.Model.SPC;
 
 @Repository
 public interface SPCRepository extends JpaRepository<SPC, Long> {
-    SPC findByCodSPC(String codSPC);
+    SPC findByCodSPC(String CodSPC);
 }

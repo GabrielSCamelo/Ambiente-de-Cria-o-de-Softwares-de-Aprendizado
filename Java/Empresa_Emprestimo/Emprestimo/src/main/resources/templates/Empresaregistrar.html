@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Empresa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Empresa</h1>
+        <form action="/empresas/Registrar" method="Post">
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required><br>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required><br>
+            
+            <label for="empcomissão">Comissão:</label>
+            <input type="text" id="empcomissão" name="empcomissão" required><br>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" required></textarea><br>
+
+            <button type="submit">Registrar Empresa</button>
+        </form>
+    </div>
+</body>
+</html>

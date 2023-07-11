@@ -30,6 +30,16 @@ public class BemDuravel implements Serializable{
     private Contratos contrato;
 
 	// Getters e setters
+	
+
+	public Contratos getContrato() {
+		return contrato;
+	}
+
+	public void setContrato(Contratos contrato) {
+		this.contrato = contrato;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -53,12 +63,5 @@ public class BemDuravel implements Serializable{
 	public void setValordbem(Double valordbem) {
 		this.valordbem = valordbem;
 	}
-
-	public Contratos getContrato() {
-		return contrato;
-	}
-
-	public void setContrato(Contratos contrato) {
-		this.contrato = contrato;
-	}
+	
 }

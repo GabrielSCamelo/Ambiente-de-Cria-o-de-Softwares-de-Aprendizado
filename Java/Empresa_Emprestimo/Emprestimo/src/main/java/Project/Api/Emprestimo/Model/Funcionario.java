@@ -39,65 +39,96 @@ public class Funcionario implements Serializable{
 	private List<Contratos> contrato;
 	
 	// Getters e setters
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	
+
 	public Long getId() {
 		return id;
 	}
+
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
+
 	public String getCodfuncionario() {
 		return codfuncionario;
 	}
+
+
 
 	public void setCodfuncionario(String codfuncionario) {
 		this.codfuncionario = codfuncionario;
 	}
 
+
+
 	public String getNome() {
 		return nome;
 	}
+
+
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+
+
 	public double getSalario() {
 		return salario;
 	}
+
+
 
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
+
+
 	public int getAnoentrada() {
 		return anoentrada;
 	}
+
+
 
 	public void setAnoentrada(int anoentrada) {
 		this.anoentrada = anoentrada;
 	}
 
+
+
 	public int getAnosaida() {
 		return anosaida;
 	}
+
+
 
 	public void setAnosaida(int anosaida) {
 		this.anosaida = anosaida;
 	}
 
+
+
 	public int getAnonascimento() {
 		return anonascimento;
 	}
+
+
 
 	public void setAnonascimento(int anonascimento) {
 		this.anonascimento = anonascimento;
 	}
 
-	public Empresa getEmpresa() {
-		return empresa;
-	}
+
 
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;

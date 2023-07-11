@@ -25,7 +25,7 @@ public class Pagamento implements Serializable{
     private Long id;
 	private LocalDate data;
 	private boolean status;
-	private double ValorParcela;
+	private double valorparcela;
 
 	//Relacionamento
 	@ManyToOne
@@ -33,13 +33,7 @@ public class Pagamento implements Serializable{
 	private Contratos contrato;
 	
 	// Getters e setters
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 
 	public boolean isStatus() {
 		return false;
@@ -57,20 +51,28 @@ public class Pagamento implements Serializable{
 		this.contrato = contrato;
 	}
 
-	public double getValorParcela() {
-		return ValorParcela;
+	public void setData(LocalDate now) {
+		
 	}
 
-	public void setValorParcela(double valorParcela) {
-		ValorParcela = valorParcela;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public double getValorparcela() {
+		return valorparcela;
+	}
+
+	public void setValorparcela(double valorparcela) {
+		this.valorparcela = valorparcela;
 	}
 
 	public LocalDate getData() {
 		return data;
-	}
-
-	public void setData(LocalDate now) {
-		
 	}
 
 }

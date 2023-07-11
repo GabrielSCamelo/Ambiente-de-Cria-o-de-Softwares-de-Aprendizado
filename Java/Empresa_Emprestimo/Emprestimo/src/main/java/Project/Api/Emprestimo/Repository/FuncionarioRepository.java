@@ -8,6 +8,6 @@ import Project.Api.Emprestimo.Model.Funcionario;
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, String> {
 
-	Funcionario findByCodfuncionario(String codFuncionario);
+	Funcionario findByCodfuncionario(String CodFuncionario);
 }
 

@@ -26,7 +26,7 @@ public class Vendedor implements Serializable{
 	private int anoentrada;
 	private int anosaida;
 	private int anonascimento;
-	private double VedComissão;
+	private double vedcomissão;
 	
 	//Relacionamento
 	@OneToOne
@@ -34,89 +34,74 @@ public class Vendedor implements Serializable{
 	private Vendedor vendedor;
 
 	// Getters e setters
+
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
 	public String getCodvendedor() {
 		return codvendedor;
 	}
-
 
 	public void setCodvendedor(String codvendedor) {
 		this.codvendedor = codvendedor;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-
 	public int getAnoentrada() {
 		return anoentrada;
 	}
-
 
 	public void setAnoentrada(int anoentrada) {
 		this.anoentrada = anoentrada;
 	}
 
-
 	public int getAnosaida() {
 		return anosaida;
 	}
-
 
 	public void setAnosaida(int anosaida) {
 		this.anosaida = anosaida;
 	}
 
-
 	public int getAnonascimento() {
 		return anonascimento;
 	}
-
 
 	public void setAnonascimento(int anonascimento) {
 		this.anonascimento = anonascimento;
 	}
 
+	public double getVedcomissão() {
+		return vedcomissão;
+	}
+
+	public void setVedcomissão(double vedcomissão) {
+		this.vedcomissão = vedcomissão;
+	}
 
 	public Vendedor getVendedor() {
 		return vendedor;
 	}
 
-
 	public void setVendedor(Vendedor vendedor) {
 		this.vendedor = vendedor;
 	}
-
-
+	
 	public static Vendedor buscarVendedorPorCod(String vendedorCod) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-
-	public double getVedComissão() {
-		return VedComissão;
-	}
-
-
-	public void setVedComissão(double vedComissão) {
-		VedComissão = vedComissão;
 	}
 
 }

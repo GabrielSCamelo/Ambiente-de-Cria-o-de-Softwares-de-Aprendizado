@@ -53,7 +53,7 @@ public class ContratosController {
         return "detalhesContrato";
     }
 
-    @PostMapping("/contratos")
+    @PostMapping("/contratos/Criar")
     public String criarContrato(@RequestParam("funcionarioCod") String funcionarioCod,
                                 @RequestParam("vendedorCod") String vendedorCod,
                                 @RequestParam("parcelas") int parcelas,
@@ -78,3 +78,4 @@ public class ContratosController {
         return "O Contrato Foi Fechado Com Sucesso";
     }
 }
+

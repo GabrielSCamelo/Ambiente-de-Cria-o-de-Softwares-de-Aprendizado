@@ -28,8 +28,8 @@ public class VendedorService {
         return vendedorRepository.findByCodvendedor(codVendedor);
     }
 
-    public Vendedor atualizarVendedor(String codVendedor, Vendedor vendedor) {
-        Vendedor vendedorExistente = vendedorRepository.findByCodvendedor(codVendedor);
+    public Vendedor atualizarVendedor(String Codvendedor, Vendedor vendedor) {
+        Vendedor vendedorExistente = vendedorRepository.findByCodvendedor(Codvendedor);
         if (vendedorExistente == null) {
             throw new RuntimeException("Vendedor não encontrado");
         }
@@ -38,7 +38,7 @@ public class VendedorService {
         vendedorExistente.setAnoentrada(vendedor.getAnoentrada());
         vendedorExistente.setAnosaida(vendedor.getAnosaida());
         vendedorExistente.setAnonascimento(vendedor.getAnonascimento());
-        vendedorExistente.setVedComissão(vendedor.getVedComissão());
+        vendedorExistente.setVedcomissão(vendedor.getVedcomissão());
 
         return vendedorRepository.save(vendedorExistente);
     }

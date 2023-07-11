@@ -35,7 +35,6 @@ public class EmpresaService {
         empresa.setDescrição(empresa.getDescrição());
         empresa.setNome(empresa.getNome());
         empresa.setCnpj(empresa.getCnpj());
-        empresa.setEmpComissão(empresa.getEmpComissão());
 
         return empresaRepository.save(empresa);
     }
@@ -51,12 +50,10 @@ public class EmpresaService {
         empresaExistente.setDescrição(empresa.getDescrição());
         empresaExistente.setNome(empresa.getNome());
         empresaExistente.setCnpj(empresa.getCnpj());
-        empresaExistente.setEmpComissão(empresa.getEmpComissão());
-
         return empresaRepository.save(empresaExistente);
     }
 
-    public void excluirEmpresa(String cnpj) {
+    public boolean excluirEmpresa(String cnpj) {
         // Verificar se a empresa existe
         Empresa empresaExistente = empresaRepository.findByCnpj(cnpj);
         if (empresaExistente == null) {
@@ -64,5 +61,7 @@ public class EmpresaService {
         }
 
         empresaRepository.delete(empresaExistente);
+        return true;
     }
 }
+
