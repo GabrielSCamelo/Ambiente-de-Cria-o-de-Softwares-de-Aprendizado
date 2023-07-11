@@ -69,7 +69,7 @@ public class ContratosServiceImpl {
 			// Associar os bens duráveis ao contrato
 			for (BemDuravel bemDuravel : bensDuraveis) {
 			bemDuravel.setContrato(contrato);
-			bemDuravelService.registrarBemDuravel(bemDuravel);
+			bemDuravelService.registrarBemDuravel(bemDuravel, null, comissaoVendedor); //irei modificar depois variaveis erradas.
 		}
 	}
 }
@@ -83,7 +83,6 @@ public class ContratosServiceImpl {
 
         return codigoContrato;
     }
-
 
     public List<Contratos> listarContratosPorFuncionario(Funcionario funcionario) {
         return contratosRepository.findByFuncionario(funcionario);

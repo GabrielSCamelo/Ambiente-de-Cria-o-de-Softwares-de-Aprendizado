@@ -24,22 +24,18 @@ public class EmpresaService {
         return empresaRepository.findByCnpj(cnpj);
     }
     
-    public Empresa registrarEmpresa(Empresa empresa) {
+    public Empresa registrarEmpresa(String Cnpj,String Descrição,String Nome) {
         // Verificar se a empresa já está registrada pelo CNPJ
-        Empresa empresaExistente = empresaRepository.findByCnpj(empresa.getCnpj());
-        if (empresaExistente != null) {
-            throw new RuntimeException("A empresa já está registrada.");
-        }
+    	
+        Empresa empresas = new Empresa();
+        empresas.setDescrição(Descrição);
+        empresas.setNome(Nome);
+        empresas.setCnpj(Cnpj);
 
-        // Configurar as características da empresa
-        empresa.setDescrição(empresa.getDescrição());
-        empresa.setNome(empresa.getNome());
-        empresa.setCnpj(empresa.getCnpj());
-
-        return empresaRepository.save(empresa);
+        return empresaRepository.save(empresas);
     }
 
-    public Empresa atualizarEmpresa(String cnpj, Empresa empresa) {
+	public Empresa atualizarEmpresa(String cnpj, Empresa empresa) {
         // Verificar se a empresa existe
         Empresa empresaExistente = empresaRepository.findByCnpj(cnpj);
         if (empresaExistente == null) {

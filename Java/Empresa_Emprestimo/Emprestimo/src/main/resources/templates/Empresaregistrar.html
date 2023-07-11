@@ -7,18 +7,15 @@
 <body>
     <div class="container">
         <h1>Registrar Empresa</h1>
-        <form action="/empresas/Registrar" method="Post">
+        <form th:action="@{/empresas/registrar}" th:object="${empresa}" method="post">
             <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj" name="cnpj" required><br>
+            <input type="text" id="cnpj" th:field="*{cnpj}" required><br>
 
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br>
-            
-            <label for="empcomissão">Comissão:</label>
-            <input type="text" id="empcomissão" name="empcomissão" required><br>
+            <input type="text" id="nome" th:field="*{nome}" required><br>
 
             <label for="descricao">Descrição:</label>
-            <textarea id="descricao" name="descricao" required></textarea><br>
+            <textarea id="descricao" th:field="*{descricao}" required></textarea><br>
 
             <button type="submit">Registrar Empresa</button>
         </form>

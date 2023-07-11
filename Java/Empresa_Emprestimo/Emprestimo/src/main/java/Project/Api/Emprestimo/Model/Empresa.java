@@ -30,8 +30,6 @@ public class Empresa implements Serializable{
     private List<Funcionario> funcionario;
 
 	// Getters e setters
-	
-
 	public List<Funcionario> getFuncionario() {
 		return funcionario;
 	}
@@ -71,7 +69,4 @@ public class Empresa implements Serializable{
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-
-	
-
 }

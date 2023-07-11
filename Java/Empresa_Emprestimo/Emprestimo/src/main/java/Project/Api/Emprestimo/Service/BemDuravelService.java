@@ -27,8 +27,13 @@ public class BemDuravelService {
                 .orElseThrow(() -> new RuntimeException("Bem durável não encontrado"));
     }
     
-    public BemDuravel registrarBemDuravel(BemDuravel bemDuravel) {
-        return bemDuravelRepository.save(bemDuravel);
+    public BemDuravel registrarBemDuravel(BemDuravel bemDuravel,String Descrição,Double Valordbem) {
+    	
+    	BemDuravel bemduravel = new BemDuravel();
+    	bemduravel.setDescrição(Descrição);
+    	bemduravel.setValordbem(Valordbem);
+    	
+        return bemDuravelRepository.save(bemduravel);
     }
 
     public BemDuravel atualizarBemDuravel(Long id, BemDuravel bemDuravelAtualizado) {

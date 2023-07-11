@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
     Empresa findByCnpj(String CNPJ);
+    
 }

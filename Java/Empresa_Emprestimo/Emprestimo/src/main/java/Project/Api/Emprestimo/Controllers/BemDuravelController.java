@@ -31,7 +31,7 @@ public class BemDuravelController {
 
     @PostMapping
     public BemDuravel registrarBemDuravel(@RequestBody BemDuravel bemDuravel) {
-        return bemDuravelService.registrarBemDuravel(bemDuravel);
+        return bemDuravelService.registrarBemDuravel(bemDuravel, null, null);
     }
 
     @PutMapping("/{id}")
