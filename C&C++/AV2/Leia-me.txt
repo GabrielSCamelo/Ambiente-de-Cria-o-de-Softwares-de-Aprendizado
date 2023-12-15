@@ -1,0 +1,2 @@
+para abrir os arquivos do projeto precisa descompactar o bin 
+ele tem os pacotes salvos da nuget
